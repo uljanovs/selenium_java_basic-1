@@ -35,23 +35,48 @@ public class Sample4Task {
     @Test
     public void enterNumber() throws Exception {
 //         TODO:
+        WebElement numberInput = driver.findElement(By.id("number"));
+        String myNymber = "12345";
+        WebElement clearButton = driver.findElement(By.id("clear_result_button_number"));
+        WebElement text = driver.findElement(By.id("result_number"));
+        WebElement resultButton = driver.findElement(By.id("result_button_number"));
+
+        numberInput.clear();
 //        enter a number under "Number"
+        numberInput.sendKeys(myNymber);
 //        check that button is not clickable "Clear Result"
+        assertFalse(clearButton.isEnabled());
 //        check that text is not displayed
+        assertFalse(text.isDisplayed());
 //        click on "Result" button
+        resultButton.click();
 //        check that text is displayed
+        assertTrue(text.isDisplayed());
 //        check that the correct Text appears ("You entered number: "NUMBER YOU ENTERED"")
+        assertEquals("You entered number: \"" + myNymber + "\"", text.getText());
 //        check that the button "Clear Result" is clickable now
+        assertTrue(clearButton.isEnabled());
 //        click on "Clear Result"
+        clearButton.click();
 //        check that the text is still (""), but it is not displayed
+        assertEquals("", text.getText());
+        assertFalse(text.isDisplayed());
     }
 
     @Test
     public void clickOnLink() throws Exception {
 //         TODO:
+
+        WebElement linkHome = driver.findElement(By.id("homepage_link"));
+
 //        check current url is base_url
+        assertEquals(base_url, driver.getCurrentUrl());
 //        click on "This is a link to Homepage"
+        linkHome.click();
 //        check that current url is not base_url
+        assertFalse(base_url.equals(driver.getCurrentUrl()));
 //        verify that current url is homepage
+        assertEquals(driver.getTitle(), "Home Page for this site");
+        assertEquals(driver.getCurrentUrl(),"https://kristinek.github.io/site/");
     }
 }
