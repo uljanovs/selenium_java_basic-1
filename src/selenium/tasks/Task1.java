@@ -53,7 +53,7 @@ public class Task1 {
         WebElement tooSmallNumberInputError = driver.findElement(By.id("ch1_error"));
         WebElement submitButton = driver.findElement(By.className("w3-orange"));
         String SendSmallNumber = "32";
-        String TooSmallNumberError = "Number is too small";
+        String TooSmallNumberError = "Number is too small";//
 
         numberInput.sendKeys(SendSmallNumber);
         submitButton.click();
