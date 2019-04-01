@@ -3,8 +3,12 @@ package selenium.tasks;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import static org.junit.Assert.*;
 
 public class Task1 {
     WebDriver driver;
@@ -15,7 +19,7 @@ public class Task1 {
         String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get("https://kristinek.github.io/sitetasks/enter_a_number");
+        driver.get("https://kristinek.github.io/site/tasks/enter_a_number");
     }
 
     @After
@@ -24,15 +28,34 @@ public class Task1 {
     }
 
     @Test
-    public void errorOnText() {
+    public void errorOnText() throws Exception {
 //        TODO
 //        enter a text instead of a number, check that correct error is seen
+        WebElement numbertextbox = driver.findElement(By.id("numb"));
+        WebElement button = driver.findElement(By.className("w3-btn"));
+        numbertextbox.click();
+        numbertextbox.sendKeys("Muthu");
+        button.click();
+        WebElement errror = driver.findElement(By.id(("ch1_error")));
+        assertEquals("Please enter a number", errror.getText());
+
+
+
     }
 
     @Test
     public void errorOnNumberTooSmall() {
 //        TODO
 //        enter number which is too small (below 50), check that correct error is seen
+        WebElement numbertextbox = driver.findElement(By.id("numb"));
+        WebElement button = driver.findElement(By.className("w3-btn"));
+        WebElement errror = driver.findElement(By.id("ch1_error"));
+        numbertextbox.click();
+        numbertextbox.sendKeys("5");
+        button.click();
+        assertEquals("Number is too small",errror.getText());
+
+
     }
 
     @Test
@@ -41,6 +64,13 @@ public class Task1 {
 //        BUG: if I enter number 666 no errors where seen
 //        TODO
 //        enter number which is too big (above 100), check that correct error is seen
+        WebElement numbertextbox = driver.findElement(By.id("numb"));
+        WebElement button = driver.findElement(By.className("w3-btn"));
+        WebElement errror = driver.findElement(By.id("ch1_error"));
+        numbertextbox.click();
+        numbertextbox.sendKeys("222");
+        button.click();
+        assertEquals("Number is too big",errror.getText());
     }
 
     @Test
@@ -48,6 +78,14 @@ public class Task1 {
 //        TODO
 //        enter a number between 50 and 100 digit in the input (square root of which doesn't have a remainder, e.g. 2 is square root of 4),
 //        then and press submit and check that correct no error is seen and check that square root is calculated correctly
+        WebElement numbertextbox = driver.findElement(By.id("numb"));
+        WebElement button = driver.findElement(By.className("w3-btn"));
+        numbertextbox.click();
+        numbertextbox.sendKeys("64");
+        button.click();
+        Alert alert = driver.switchTo().alert();
+        assertEquals("Square root of 64 is 8.00", alert.getText());
+        alert.accept();
     }
 
     @Test
@@ -55,5 +93,14 @@ public class Task1 {
 //        TODO
 //        enter a number between 50 and 100 digit in the input (square root of which doesn't have a remainder, e.g. 1.732.. is square root of 3) and press submit,
 //        then check that correct no error is seen and check that square root is calculated correctly
+        WebElement numbertextbox = driver.findElement(By.id("numb"));
+        WebElement button = driver.findElement(By.className("w3-btn"));
+        numbertextbox.click();
+        numbertextbox.sendKeys("73");
+        button.click();
+        Alert alert = driver.switchTo().alert();
+        assertEquals("Square root of 73 is 8.54", alert.getText());
+        alert.accept();
+
     }
 }
