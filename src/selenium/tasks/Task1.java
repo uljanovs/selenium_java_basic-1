@@ -16,7 +16,6 @@ public class Task1 {
 
     @Before
     public void openPage() {
-
         String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver.exe");
         driver = new ChromeDriver();
@@ -63,7 +62,6 @@ public class Task1 {
 
         Alert alert = driver.switchTo().alert();
 
-
         assertEquals("Square root of 64 is 8.00", alert.getText());
     }
 
@@ -78,6 +76,7 @@ public class Task1 {
         Alert alert = driver.switchTo().alert();
 
         assertEquals("Square root of 67 is 8.19", alert.getText());
+        
         alert.accept();
 
         assertEquals("", driver.findElement(By.id("ch1_error")).getText());
