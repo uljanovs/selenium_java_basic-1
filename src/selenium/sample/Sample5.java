@@ -76,7 +76,6 @@ public class Sample5 {
         assertEquals("You have dared to deny me!!!", driver.findElement(By.id("textForAlerts")).getText());
     }
 
-
     @Test
     public void popUpEnterNumber() throws Exception {
         String enterKeys = "5";

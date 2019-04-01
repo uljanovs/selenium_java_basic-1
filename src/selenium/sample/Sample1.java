@@ -17,8 +17,11 @@ public class Sample1 {
 
         //open test homepage
         driver.get("https://google.com");
+
         driver.get("https://kristinek.github.io/site/");
+
         System.out.println(driver.findElement(By.id("h1")).getText());
+
         //get title of page
         System.out.println(driver.getTitle());
 
