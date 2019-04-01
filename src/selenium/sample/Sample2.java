@@ -50,6 +50,7 @@ public class Sample2 {
         System.out.println(driver.findElement(By.name("randomButton1")).getAttribute("type")); // "button"
         System.out.println(driver.findElement(By.name("randomButton1")).getAttribute("name")); // "randomButton"
         System.out.println(driver.findElement(By.name("randomButton1")).getAttribute("id")); // empty
+        Thread.sleep(10000);
         // Unable to locate element: {"method":"name","selector":"randomButton123"}:
 //        System.out.println(driver.findElement(By.name("randomButton123")).getAttribute("value"));
     }

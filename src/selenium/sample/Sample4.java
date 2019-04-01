@@ -48,6 +48,7 @@ public class Sample4 {
         WebElement showButton = driver.findElement(By.id("show_text"));
         WebElement hideButton = driver.findElement(By.name("hide_text"));
 
+
         assertFalse(text.isDisplayed()); // "I am here!" is NOT seen
         assertTrue(showButton.isEnabled()); // "Show" button is enabled (clickable)
         assertFalse(hideButton.isEnabled()); // "Hide" button is NOT enabled (clickable)

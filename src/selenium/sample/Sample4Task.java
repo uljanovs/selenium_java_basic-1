@@ -35,23 +35,44 @@ public class Sample4Task {
     @Test
     public void enterNumber() throws Exception {
 //         TODO:
+        WebElement enter = driver.findElement(By.id("number"));
+        WebElement buttonclearresult = driver.findElement(By.id("clear_result_button_number"));
+        WebElement buttonresult = driver.findElement((By.id("result_button_number")));
+        WebElement text = driver.findElement(By.id("result_number"));
+        String Displayedtext = "You entered number: \"10\"";
+       enter.click();
+       enter.clear();
 //        enter a number under "Number"
+        enter.sendKeys("10");
 //        check that button is not clickable "Clear Result"
+        assertFalse(buttonclearresult.isEnabled());
 //        check that text is not displayed
+        assertFalse(text.isDisplayed());
 //        click on "Result" button
+        buttonresult.click();
 //        check that text is displayed
+        assertTrue(text.isDisplayed());
 //        check that the correct Text appears ("You entered number: "NUMBER YOU ENTERED"")
+       assertEquals(Displayedtext,text.getText());
 //        check that the button "Clear Result" is clickable now
+        assertTrue(buttonclearresult.isDisplayed());
 //        click on "Clear Result"
+        buttonclearresult.click();
 //        check that the text is still (""), but it is not displayed
+        assertFalse(text.isDisplayed());
     }
 
     @Test
     public void clickOnLink() throws Exception {
 //         TODO:
+        WebElement homepagelink = driver.findElement(By.id("homepage_link"));
 //        check current url is base_url
+        assertEquals(base_url, driver.getCurrentUrl());
 //        click on "This is a link to Homepage"
+        homepagelink.click();
 //        check that current url is not base_url
+        assertNotEquals(base_url, driver.getCurrentUrl() );
 //        verify that current url is homepage
+        assertEquals("This is a home page", driver.findElement(By.id("h1")).getText());
     }
 }
