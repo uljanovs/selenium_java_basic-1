@@ -38,10 +38,10 @@ public class Sample5 {
         driver.get("https://kristinek.github.io/site/examples/al_p");
 //        org.openqa.selenium.UnhandledAlertException: unexpected alert open:
 //        driver.findElement(By.id("heading")).getText();
-        Alert alert = driver.switchTo().alert();
+        Alert alert = driver.switchTo().alert(); // driver - switch attention to the alert
         assertEquals("Booooooooo!", alert.getText());
 
-        alert.accept();
+        alert.accept(); // click ok
         assertEquals("This page is alerted", driver.findElement(By.id("heading")).getText());
     }
 
@@ -72,7 +72,7 @@ public class Sample5 {
         Alert alert = driver.switchTo().alert();
         assertEquals("Press a button!", alert.getText());
 
-        alert.dismiss();
+        alert.dismiss(); // click cancel
         assertEquals("You have dared to deny me!!!", driver.findElement(By.id("textForAlerts")).getText());
     }
 

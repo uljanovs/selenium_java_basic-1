@@ -32,6 +32,7 @@ public class Sample2 {
         driver.quit();
     }
 
+    // Find by ID
     @Test
     public void findElementByID() throws Exception {
         // works:
@@ -42,6 +43,7 @@ public class Sample2 {
 //        System.out.println(driver.findElement(By.id("headingasdga")).getText());
     }
 
+    //Find by Name
     @Test
     public void findElementByName() throws Exception {
         // From page:
@@ -54,18 +56,20 @@ public class Sample2 {
 //        System.out.println(driver.findElement(By.name("randomButton123")).getAttribute("value"));
     }
 
+    //Find by Class - just one
     @Test
     public void findElementByClassFirst() throws Exception {
-        System.out.println(driver.findElement(By.className("text")).getText()); // "sample text 1"
+        System.out.println(driver.findElement(By.className("text")).getText()); // "sample text 1" - it finds the first one, no option to define which one
     }
 
+    //Find by Class - list of multiply elements
     @Test
     public void findElementByClassAll() throws Exception {
         System.out.println(driver.findElements(By.id("headingasdga")).size()); // 0
         System.out.println(driver.findElements(By.className("text")).size()); // 5
         List<WebElement> allElementsWithClass = driver.findElements(By.className("text"));
 //
-        for (WebElement elementWithClass : allElementsWithClass) {
+        for (WebElement elementWithClass : allElementsWithClass) { // allElementsWithClass - list name
             System.out.println(elementWithClass.getText());
             //            sample text 1
             //            sample text 2
@@ -74,7 +78,7 @@ public class Sample2 {
             //            dummy text
         }
         System.out.println("-----------------------");
-        System.out.println(driver.findElements(By.className("text")).get(0).getText());
+        System.out.println(driver.findElements(By.className("text")).get(0).getText()); // gets text for the first (0) element
         System.out.println(driver.findElements(By.className("text")).get(2).getText()); // "unbelievable sample text"
     }
 }

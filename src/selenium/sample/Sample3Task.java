@@ -38,21 +38,41 @@ public class Sample3Task {
     public void assertEqualsTask() throws Exception {
 //         TODO:
 //         check how many element with class "test" there are on page (5)
+        int expectednumber = 5;
+        int actualnumber = driver.findElements(By.className("test")).size();
+        assertEquals(expectednumber, actualnumber);
+
 //         check that value of second button is "This is also a button"
+        String expectedvalue = "This is also a button";
+        String actualvalue = driver.findElement(By.name("randomButton2")).getAttribute("value");
+        assertEquals(expectedvalue, actualvalue);
+
+        //check that value of second button is "This is also a button"
+        assertEquals("This is also a button", driver.findElement(By.name("randomButton2")).getAttribute("value"));
     }
 
     @Test
     public void assertTrueTask() throws Exception {
 //         TODO:
+        assertTrue("custom Message", driver.findElement(By.name("randomButton2")).getAttribute("value").equalsIgnoreCase("this is Also a Button"));
 //         check that it is True that value of second button is
 //         "this is Also a Button" if you ignore Caps Locks
+        String elementvalue = driver.findElement(By.name("randomButton2")).getAttribute("value");
+        assertTrue(elementvalue.equalsIgnoreCase("this is Also a Button"));
+
 //         fail with custom error message:
+        fail("I want this test to fail, so will!");
     }
 
     @Test
     public void assertFalseTask() throws Exception {
 //         TODO:
+        assertFalse(driver.findElement(By.name("randomButton2")).getAttribute("value").equals("This is a button"));
+
 //        check that it is False that value of second button is "This is a button"
+        String elementvalueonText = driver.findElement(By.name("randomButton2")).getAttribute("value");
+        assertFalse(elementvalueonText.equals("This is a button"));
+
     }
 
     @Test
@@ -60,5 +80,9 @@ public class Sample3Task {
 //        TODO:
 //        check that none of items with class "test"
 //        contain number 190
+        List<WebElement> elements = driver.findElements(By.className("test"));
+        for (WebElement element : elements) {
+            assertFalse(element.getText().contains("190"));
+        }
     }
 }

@@ -96,7 +96,7 @@ public class Sample3 {
     @Test
     public void assertEqualsExampleWithDefaultError() throws Exception {
         try {
-            assertEquals(3, 4);
+            assertEquals(3, 4);  //  catches just the first error
         } catch (AssertionError e) {
             System.err.println("We failed ");
             e.printStackTrace();
