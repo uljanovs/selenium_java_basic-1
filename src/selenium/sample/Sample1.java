@@ -7,12 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Sample1 {
-    static String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
+    static String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";  // go to folder srt and libraries
 
     @Test
     public void goToHomepage() throws Exception {
         //define driver
-        System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver.exe"); // Java
         WebDriver driver = new ChromeDriver();
 
         //open test homepage
@@ -26,7 +26,7 @@ public class Sample1 {
         System.out.println(driver.getCurrentUrl());
 
         //Sleep for 10 seconds
-        Thread.sleep(10000);
+        Thread.sleep(10000);    // Java
 
         //Close browser
         driver.quit();

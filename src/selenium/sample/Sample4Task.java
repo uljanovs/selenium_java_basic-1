@@ -36,14 +36,36 @@ public class Sample4Task {
     public void enterNumber() throws Exception {
 //         TODO:
 //        enter a number under "Number"
+
+
+
+
+        WebElement numberInput = driver.findElement(By.id("number"));
+        WebElement clearResultButton = driver.findElement(By.id("clear_result_button_number"));
+        WebElement resultNumber = driver.findElement(By.id("result_number"));
+        WebElement resultButtonNumber = driver.findElement(By.id("result_button_number"));
+        String ResultText = "You entered number: ";
+        String OriginalNumber = "5";
+        String SendNumberOne = "1234";
+
+        numberInput.sendKeys(SendNumberOne);
 //        check that button is not clickable "Clear Result"
+        assertFalse(clearResultButton.isEnabled());
 //        check that text is not displayed
+        assertFalse(resultNumber.isDisplayed());
 //        click on "Result" button
+        resultButtonNumber.click();
 //        check that text is displayed
+        assertTrue(resultNumber.isDisplayed());
 //        check that the correct Text appears ("You entered number: "NUMBER YOU ENTERED"")
+        assertEquals(resultNumber.getText(), ResultText + "\"" + SendNumberOne + OriginalNumber + "\"");
 //        check that the button "Clear Result" is clickable now
+        assertTrue(clearResultButton.isEnabled());
 //        click on "Clear Result"
+        clearResultButton.click();
 //        check that the text is still (""), but it is not displayed
+
+
     }
 
     @Test
