@@ -74,7 +74,7 @@ public class Sample2 {
             //            dummy text
         }
         System.out.println("-----------------------");
-        System.out.println(driver.findElements(By.className("text")).get(0).getText());
+        System.out.println(driver.findElements(By.className("text")).get(0).getText()); // "sample text 1"
         System.out.println(driver.findElements(By.className("text")).get(2).getText()); // "unbelievable sample text"
     }
 }

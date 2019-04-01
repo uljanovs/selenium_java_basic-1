@@ -76,7 +76,7 @@ public class Task1 {
         Alert alert = driver.switchTo().alert();
 
         assertEquals("Square root of 67 is 8.19", alert.getText());
-        
+
         alert.accept();
 
         assertEquals("", driver.findElement(By.id("ch1_error")).getText());

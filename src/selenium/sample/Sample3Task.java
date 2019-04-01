@@ -41,7 +41,6 @@ public class Sample3Task {
 //         check that value of second button is "This is also a button"
 
         assertEquals(5, driver.findElements(By.className("test")).size());
-//         check that value of second button is "This is also a button"
         assertEquals("This is also a button", driver.findElement(By.id("buttonId")).getAttribute("value"));
     }
 
@@ -64,15 +63,13 @@ public class Sample3Task {
 
 
     @Test
-    public void failTask() throws Exception {
-List<WebElement> elements = driver.findElements(By.className("test"));
-for (WebElement element: elements){
-    assertFalse(element.getText().contains("190"));
-}
-//        TODO:
+    //        TODO:
 //        check that none of items with class "test"
 //        contain number 190
-
-
+    public void failTask() throws Exception {
+        List<WebElement> elements = driver.findElements(By.className("test"));
+        for (WebElement element : elements) {
+            assertFalse(element.getText().contains("190"));
+        }
     }
 }

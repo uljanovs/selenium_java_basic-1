@@ -46,7 +46,7 @@ public class Sample4Task {
 //        check that text is displayed
         assertTrue(driver.findElement(By.id("result_number")).isDisplayed());
 //        check that the correct Text appears ("You entered number: "NUMBER YOU ENTERED"")
-        assertEquals("You entered number: \"1235\"", driver.findElement(By.id("result_number")).getText());
+        assertEquals("You entered number: \"123\"", driver.findElement(By.id("result_number")).getText());
 //        check that the button "Clear Result" is clickable now
         assertTrue(driver.findElement(By.id("clear_result_button_number")).isEnabled());
 //        click on "Clear Result"
