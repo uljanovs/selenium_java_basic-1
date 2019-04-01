@@ -38,11 +38,11 @@ public class Sample5 {
         driver.get("https://kristinek.github.io/site/examples/al_p");
 //        org.openqa.selenium.UnhandledAlertException: unexpected alert open:
 //        driver.findElement(By.id("heading")).getText();
-        Alert alert = driver.switchTo().alert();
-        assertEquals("Booooooooo!", alert.getText());
+        Alert alert = driver.switchTo().alert(); //switch your attention to alert
+        assertEquals("Booooooooo!", alert.getText()); // getting the text in alert
 
-        alert.accept();
-        assertEquals("This page is alerted", driver.findElement(By.id("heading")).getText());
+        alert.accept(); //accepting alert
+        assertEquals("This page is alerted", driver.findElement(By.id("heading")).getText());//and page is displayed
     }
 
     @Test
@@ -72,7 +72,7 @@ public class Sample5 {
         Alert alert = driver.switchTo().alert();
         assertEquals("Press a button!", alert.getText());
 
-        alert.dismiss();
+        alert.dismiss();//means cancel
         assertEquals("You have dared to deny me!!!", driver.findElement(By.id("textForAlerts")).getText());
     }
 
@@ -84,7 +84,7 @@ public class Sample5 {
         Alert alert = driver.switchTo().alert();
         assertEquals("Please enter a number", alert.getText());
 
-        alert.sendKeys(enterKeys);
+        alert.sendKeys(enterKeys);//write text in alert
         alert.accept();
         assertTrue(driver.findElement(By.id("textForAlerts")).getText().contains("instead of " + enterKeys));
     }

@@ -61,11 +61,11 @@ public class Sample2 {
 
     @Test
     public void findElementByClassAll() throws Exception {
-        System.out.println(driver.findElements(By.id("headingasdga")).size()); // 0
-        System.out.println(driver.findElements(By.className("text")).size()); // 5
+        System.out.println(driver.findElements(By.id("headingasdga")).size()); // 0 it will return a list <web elemnents>, <...> size will be 0, because it is not existing
+        System.out.println(driver.findElements(By.className("text")).size()); // 5 it is existing and will bring 5 elements in a list
         List<WebElement> allElementsWithClass = driver.findElements(By.className("text"));
 //
-        for (WebElement elementWithClass : allElementsWithClass) {
+        for (WebElement elementWithClass : allElementsWithClass) { // if the list contains 0 elements it wont go in the loop. if it does then it prints all elements in the class
             System.out.println(elementWithClass.getText());
             //            sample text 1
             //            sample text 2
@@ -74,7 +74,7 @@ public class Sample2 {
             //            dummy text
         }
         System.out.println("-----------------------");
-        System.out.println(driver.findElements(By.className("text")).get(0).getText());
-        System.out.println(driver.findElements(By.className("text")).get(2).getText()); // "unbelievable sample text"
+        System.out.println(driver.findElements(By.className("text")).get(0).getText());//it will be the First element
+        System.out.println(driver.findElements(By.className("text")).get(2).getText()); // "unbelievable sample text" it will be the third element
     }
 }

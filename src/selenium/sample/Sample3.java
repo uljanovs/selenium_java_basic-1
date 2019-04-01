@@ -62,7 +62,7 @@ public class Sample3 {
         String elementTextOnPage = driver.findElement(By.cssSelector(".unbelievable")).getText();
         assertTrue(elementTextOnPage.equals("unbelievable sample text"));
 //        assertTrue("Expecting the element with class 'unbelievable' to have text 'ajshdka'", elementTextOnPage.contains("ajshdka"));
-        assertTrue(elementTextOnPage.equalsIgnoreCase("unBELIEVable sAMPle Text"));
+        assertTrue(elementTextOnPage.equalsIgnoreCase("unBELIEVable sAMPle Text")); //ignore teksta lielos mazos burtus un pienem
         // pass:
         assertTrue(true);
         // fail:
@@ -108,7 +108,7 @@ public class Sample3 {
     @Test
     public void assertEqualsExampleWithCustomError() throws Exception {
         try {
-            assertEquals("custom message", 3, 4);
+            assertEquals("custom message", 3, 4); // it will catch only first one
         } catch (AssertionError e) {
             System.err.println("We failed with custom message”");
             e.printStackTrace();

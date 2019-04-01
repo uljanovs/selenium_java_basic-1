@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import javax.xml.transform.Result;
+
 import static org.junit.Assert.*;
 
 public class Sample4Task {
@@ -36,22 +38,56 @@ public class Sample4Task {
     public void enterNumber() throws Exception {
 //         TODO:
 //        enter a number under "Number"
-//        check that button is not clickable "Clear Result"
+
+        String NewNumberText = "7";
+        String DisplayedText = "You entered number: \"7\"";
+
+        WebElement Numberplace = driver.findElement(By.id("number"));
+        Numberplace.clear();
+        Numberplace.sendKeys(NewNumberText);
+
+        //check that button is not clickable "Clear Result"
+        WebElement ClearResultButton = driver.findElement(By.id("clear_result_button_text_area"));
+        assertFalse(ClearResultButton.isEnabled());
+
 //        check that text is not displayed
+        assertFalse(ClearResultButton.isEnabled());
+
 //        click on "Result" button
+        WebElement ResultButton = driver.findElement(By.id("result_button_number"));
+        ResultButton.click();
+
 //        check that text is displayed
+        assertTrue(ResultButton.isDisplayed());
+
 //        check that the correct Text appears ("You entered number: "NUMBER YOU ENTERED"")
+
+        WebElement text = driver.findElement(By.id("result_number"));
+        assertEquals(DisplayedText,text.getText());
+
 //        check that the button "Clear Result" is clickable now
+        assertTrue(ClearResultButton.isEnabled());
+
 //        click on "Clear Result"
+        ClearResultButton.click();
+
+
 //        check that the text is still (""), but it is not displayed
+        assertEquals("",Numberplace.getText());
+        assertFalse(driver.findElement(By.id("result_number")).isDisplayed());
     }
 
     @Test
     public void clickOnLink() throws Exception {
 //         TODO:
 //        check current url is base_url
+        assertEquals(base_url, driver.getCurrentUrl());
 //        click on "This is a link to Homepage"
+        driver.findElement(By.id("homepage_link")).click();
 //        check that current url is not base_url
+        assertFalse(driver.getCurrentUrl().equals(base_url));
 //        verify that current url is homepage
+        //assertNotEquals(base_url, driver.getCurrentUrl());
+        assertTrue(driver.getCurrentUrl().equals (base_url));
     }
 }

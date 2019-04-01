@@ -13,14 +13,14 @@ public class Sample1 {
     public void goToHomepage() throws Exception {
         //define driver
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver(); //webdriver ..... in this place you can write any word
 
         //open test homepage
-        driver.get("https://google.com");
+        driver.get("https://google.com"); //OPEN ME THE PAGE
         driver.get("https://kristinek.github.io/site/");
         System.out.println(driver.findElement(By.id("h1")).getText());
         //get title of page
-        System.out.println(driver.getTitle());
+        System.out.println(driver.getTitle());//AUGSEJAIS VARDS
 
         //get URL of current page
         System.out.println(driver.getCurrentUrl());

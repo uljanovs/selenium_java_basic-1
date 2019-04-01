@@ -27,12 +27,14 @@ public class Task1 {
     public void errorOnText() {
 //        TODO
 //        enter a text instead of a number, check that correct error is seen
+
     }
 
     @Test
     public void errorOnNumberTooSmall() {
 //        TODO
 //        enter number which is too small (below 50), check that correct error is seen
+
     }
 
     @Test
