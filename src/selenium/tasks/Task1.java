@@ -107,6 +107,10 @@ public class Task1 {
         submitButton.click();
         Alert alert = driver.switchTo().alert();
         assertEquals("Square root of " + myNumber + " is " + mySqrt, alert.getText());
+        alert.accept();
+        assertEquals("", driver.findElement(By.id("ch1_error")).getText());
+
+
 
     }
 }
