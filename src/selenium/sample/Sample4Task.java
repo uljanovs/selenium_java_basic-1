@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class Sample4Task {
     WebDriver driver;
@@ -44,6 +45,26 @@ public class Sample4Task {
 //        check that the button "Clear Result" is clickable now
 //        click on "Clear Result"
 //        check that the text is still (""), but it is not displayed
+        String numbers = "12345";
+        WebElement field = driver.findElement(By.id("number"));
+
+        field.clear();
+        field.sendKeys(numbers);
+
+        assertFalse(driver.findElement(By.id("clear_result_button_number")).isEnabled());
+
+        WebElement result_number = driver.findElement(By.id("result_number"));
+
+
+        assertTrue(result_number.getText().isEmpty());
+        driver.findElement(By.id("result_button_number")).click();
+
+        assertFalse(result_number.getText().isEmpty());
+        assertEquals(result_number.getText(), "You entered number: \"" + numbers + "\"");
+        assertTrue(driver.findElement(By.id("clear_result_button_number")).isEnabled());
+        driver.findElement(By.id("clear_result_button_number")).click();
+        assertEquals(result_number.getText(), "");
+        assertFalse(result_number.isDisplayed());
     }
 
     @Test
@@ -53,5 +74,10 @@ public class Sample4Task {
 //        click on "This is a link to Homepage"
 //        check that current url is not base_url
 //        verify that current url is homepage
+
+        assertEquals(driver.getCurrentUrl(), base_url);
+        driver.findElement(By.id("homepage_link")).click();
+        assertFalse(base_url.equals(driver.getCurrentUrl()));
+        assertEquals(driver.getCurrentUrl(), "https://kristinek.github.io/site/");
     }
 }
