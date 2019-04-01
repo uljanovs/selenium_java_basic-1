@@ -108,7 +108,7 @@ public class Sample3 {
     @Test
     public void assertEqualsExampleWithCustomError() throws Exception {
         try {
-            assertEquals("custom message", 3, 4);
+            assertEquals("custom message", 3, 4); //"custom message" - reminder
         } catch (AssertionError e) {
             System.err.println("We failed with custom message”");
             e.printStackTrace();

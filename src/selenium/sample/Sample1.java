@@ -1,6 +1,5 @@
 package selenium.sample;
 
-
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,6 +18,7 @@ public class Sample1 {
         driver.get("https://google.com");
         driver.get("https://kristinek.github.io/site/");
         System.out.println(driver.findElement(By.id("h1")).getText());
+
         //get title of page
         System.out.println(driver.getTitle());
 

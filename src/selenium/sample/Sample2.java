@@ -30,6 +30,7 @@ public class Sample2 {
     @After
     public void endingTests() throws Exception {
         driver.quit();
+
     }
 
     @Test
@@ -63,6 +64,7 @@ public class Sample2 {
     public void findElementByClassAll() throws Exception {
         System.out.println(driver.findElements(By.id("headingasdga")).size()); // 0
         System.out.println(driver.findElements(By.className("text")).size()); // 5
+
         List<WebElement> allElementsWithClass = driver.findElements(By.className("text"));
 //
         for (WebElement elementWithClass : allElementsWithClass) {
