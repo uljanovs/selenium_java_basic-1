@@ -19,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 
 public class Sample9Task {
 
-    WebDriver driver;
+    private WebDriver driver;
     private static WebDriverWait wait;
 
     @Before

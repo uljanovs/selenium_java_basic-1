@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static org.junit.Assert.assertEquals;
 
 public class Sample5Task {
-    WebDriver driver;
+    private WebDriver driver;
 
     // method which is being run before each test
     @Before
@@ -51,7 +51,6 @@ public class Sample5Task {
 
     @Test
     public void doNotGoToAlertedPageViaButton() throws Exception {
-//         TODO:
 //        click on "To go to alerted page press Ok. Or stay here" button
         driver.findElement(By.className("w3-blue")).click();
 //        switch to alert

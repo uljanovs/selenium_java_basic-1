@@ -14,7 +14,7 @@ import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.*;
 
 public class Sample3Task {
-    WebDriver driver;
+    private WebDriver driver;
 
     // method which is being run before each test
     @Before

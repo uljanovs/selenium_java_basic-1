@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static junit.framework.TestCase.assertEquals;
 
 public class Sample6Task {
-    WebDriver driver;
+    private WebDriver driver;
 
     // method which is being run before each test
     @Before

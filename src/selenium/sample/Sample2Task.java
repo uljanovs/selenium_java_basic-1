@@ -13,7 +13,7 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 
 public class Sample2Task {
-    WebDriver driver;
+    private WebDriver driver;
 
     // method which is being run before each test
     @Before

@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static java.lang.Math.sqrt;
 import static junit.framework.TestCase.assertEquals;
@@ -15,7 +14,7 @@ import static junit.framework.TestCase.fail;
 
 public class Task1 {
 
-    WebDriver driver;
+    private WebDriver driver;
 
     @Before
     public void openPage() {

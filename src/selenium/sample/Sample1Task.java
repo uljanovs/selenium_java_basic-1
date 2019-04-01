@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Sample1Task {
-    static String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
+    private static String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
 
     @Test
     public void goToHomepage() throws Exception {
