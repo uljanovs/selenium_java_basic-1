@@ -37,7 +37,7 @@ public class Task1 {
 
 //        TODO
 //        enter a text instead of a number, check that correct error is seen
-        inputField.sendKeys("not numbers");
+        inputField.sendKeys("Not a number.");
         submitButton.click();
         assertEquals("Please enter a number", driver.findElement(By.id("ch1_error")).getText());
     }

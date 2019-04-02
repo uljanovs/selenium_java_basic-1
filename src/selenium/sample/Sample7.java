@@ -106,6 +106,7 @@ public class Sample7 {
 
     @Test
     public void chooseDateViaCalendar() throws Exception {
+        driver.findElement(By.id("vfb-8")).click();
 //    get today date
         Calendar cal = Calendar.getInstance();
 //    go back 10 month
