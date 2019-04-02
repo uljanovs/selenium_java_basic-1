@@ -8,6 +8,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static java.lang.String.format;
+
+import java.lang.Math;
+
 import static org.junit.Assert.*;
 
 public class Task1 {
@@ -61,14 +65,17 @@ public class Task1 {
 //        TODO
 //        enter a number between 50 and 100 digit in the input (square root of which doesn't have a remainder, e.g. 2 is square root of 4),
 //        then and press submit and check that correct no error is seen and check that square root is calculated correctly
-        driver.findElement(By.id("numb")).sendKeys("64");
+        String input;
+        input = "64";
+        double inp = Integer.parseInt(input);
+        String inpSquare = format("%.2f", (Math.sqrt(inp)));
+        driver.findElement(By.id("numb")).sendKeys(input);
         driver.findElement(By.className("w3-orange")).click();
         Alert alert = driver.switchTo().alert();
-        assertEquals("Square root of 64 is 8.00", alert.getText());
+        assertEquals("Square root of " + input + " is " + inpSquare, alert.getText());
         alert.accept();
         assertFalse(driver.findElement(By.id("ch1_error")).isDisplayed());
         assertEquals("", driver.findElement(By.id("ch1_error")).getText());
-
     }
 
     @Test
@@ -76,10 +83,15 @@ public class Task1 {
 //        TODO
 //        enter a number between 50 and 100 digit in the input (square root of which doesn't have a remainder, e.g. 1.732.. is square root of 3) and press submit,
 //        then check that correct no error is seen and check that square root is calculated correctly
-        driver.findElement(By.id("numb")).sendKeys("75");
+
+        String input;
+        input = "75";
+        double inp = Integer.parseInt(input);
+        String inpSquare = format("%.2f", (Math.sqrt(inp)));
+        driver.findElement(By.id("numb")).sendKeys(input);
         driver.findElement(By.className("w3-orange")).click();
         Alert alert = driver.switchTo().alert();
-        assertEquals("Square root of 75 is 8.66", alert.getText());
+        assertEquals("Square root of " + input + " is " + inpSquare, alert.getText());
         alert.accept();
         assertFalse(driver.findElement(By.id("ch1_error")).isDisplayed());
         assertEquals("", driver.findElement(By.id("ch1_error")).getText());
