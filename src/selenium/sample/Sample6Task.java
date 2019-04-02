@@ -56,7 +56,7 @@ public class Sample6Task {
 //         TODO:
         System.out.println("Find element by id using CSS:");
 //        1-2 ways to find text: "Heading 2 text"
-        System.out.println(driver.findElement(By.id("heading_2")).getText());
+        System.out.println(driver.findElement(By.cssSelector("h2#heading_2")).getText());
 //        1-2 ways to find text: "Test Text 1"
         System.out.println(driver.findElements(By.className("test")).get(0).getText());
 //        1-2 ways to find text: "Test Text 2"
