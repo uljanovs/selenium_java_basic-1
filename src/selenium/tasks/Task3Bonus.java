@@ -12,10 +12,12 @@ import selenium.pages.FormPage;
 import selenium.pages.Gender;
 import selenium.pages.ListPage;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.fail;
 
 public class Task3Bonus {
     private WebDriver driver;
@@ -26,7 +28,6 @@ public class Task3Bonus {
 //     should be what you see if you click "Add" or "Edit" (2 input field and a button (Add/Edit) and (Cancel)
     private FormPage formPage;
 
-    // TODO
 //    Bonus:
 //    try storing people via an Object/separate class
 
@@ -61,7 +62,11 @@ public class Task3Bonus {
         formPage.enterName("name");
         formPage.enterSurname("surname");
         formPage.enterJob("job");
-        formPage.enterDateOfBirth("11/01/1990");
+        try {
+            formPage.enterDateOfBirth("11/01/1990");
+        } catch (ParseException e) {
+            fail("incorrect date format");
+        }
         formPage.selectLanguages(true, false, true);
         formPage.selectGender(Gender.MALE);
         formPage.selectEmployeeStatus(EmployeeStatus.CONTRACTOR);
@@ -87,7 +92,11 @@ public class Task3Bonus {
 
         formPage.enterName("New name");
         formPage.selectLanguages(false, false, false);
-        formPage.enterDateOfBirth("11/01/1990");
+        try {
+            formPage.enterDateOfBirth("11/01/1990");
+        } catch (ParseException e) {
+            fail("incorrect date format");
+        }
         formPage.selectGender(Gender.MALE);
         formPage.selectEmployeeStatus(EmployeeStatus.CONTRACTOR);
         formPage.clickEditBtn();
@@ -117,7 +126,11 @@ public class Task3Bonus {
 
         formPage.enterName("New name");
         formPage.selectLanguages(false, false, false);
-        formPage.enterDateOfBirth("11/01/1990");
+        try {
+            formPage.enterDateOfBirth("11/01/1990");
+        } catch (ParseException e) {
+            fail("incorrect date format");
+        }
         formPage.selectGender(Gender.MALE);
         formPage.selectEmployeeStatus(EmployeeStatus.CONTRACTOR);
         formPage.clickCancelBtn();

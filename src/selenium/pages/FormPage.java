@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class FormPage {
@@ -45,8 +47,10 @@ public class FormPage {
         jobInput.sendKeys(job);
     }
 
-    public void enterDateOfBirth(String date) {
-        //TODO check date
+    public void enterDateOfBirth(String date) throws ParseException {
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        formatter.setLenient(false);
+        formatter.parse(date);
         dateOfBirthBox.clear();
         dateOfBirthBox.sendKeys(date);
     }

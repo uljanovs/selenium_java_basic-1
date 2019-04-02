@@ -3,14 +3,13 @@ package selenium.sample;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
 
@@ -114,6 +113,9 @@ public class Sample7Task {
         dateWidget.findElement(By.xpath("//a[text()='4']")).click();
 //        check that correct date is added
         assertEquals("07/04/2007", dateBox.getAttribute("value"));
+        TimeUnit.SECONDS.sleep(1);
+        driver.findElement(By.id("result_button_date")).click();
+        assertEquals("You entered date: 07/04/2007", driver.findElement(By.id("result_date")).getText());
     }
 
     @Test
@@ -121,8 +123,11 @@ public class Sample7Task {
 //        enter date '2 of May 1959' using text
         WebElement dateBox = driver.findElement(By.id("vfb-8"));
         dateBox.clear();
-        dateBox.sendKeys("05/02/1959");
+        dateBox.sendKeys("05/02/1959" + Keys.ENTER);
 //        check that correct date is added
         assertEquals("05/02/1959", dateBox.getAttribute("value"));
+        TimeUnit.SECONDS.sleep(1);
+        driver.findElement(By.id("result_button_date")).click();
+        assertEquals("You entered date: 05/02/1959", driver.findElement(By.id("result_date")).getText());
     }
 }
