@@ -101,7 +101,7 @@ public class Sample7 {
     public void testDragAndDrop() throws Exception {
         String dragElement = "#black_box";
         String toTarget = "#drag_box2";
-        Sample7DragAndDropMagic.dragAndDropMagic(driver, dragElement, toTarget);
+        Sample7DragAndDropMagic.dragAndDropMagic(driver, dragElement, toTarget);//
     }
 
     @Test
