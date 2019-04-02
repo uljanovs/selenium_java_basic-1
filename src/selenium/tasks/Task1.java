@@ -99,5 +99,5 @@ public class Task1 {
         button.click();
         Alert alert = driver.switchTo().alert();
         assertEquals("Square root of 57 is 7.55", alert.getText());
-    }
+            }
 }

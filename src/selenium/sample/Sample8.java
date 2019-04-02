@@ -42,5 +42,8 @@ public class Sample8 {
 
         WebElement div_h1 = driver.findElement(By.xpath("//div[h1]"));
         assertEquals("rgba(241, 241, 241, 1)", div_h1.getCssValue("background-color"));
+
+
     }
+
 }
