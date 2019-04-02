@@ -149,6 +149,7 @@ public class Task1 {
 
         driver.navigate().refresh();
 
+        // "BUG"
         driver.findElement(By.id("numb")).sendKeys("666");
         driver.findElement(By.xpath("//button[text()='Submit']")).click();
         assertEquals("rgba(241, 241, 241, 1)", driver.findElement(By.id("numb")).getCssValue("background-color"));
@@ -156,6 +157,7 @@ public class Task1 {
 
         driver.navigate().refresh();
 
+        // "BUG"
         driver.findElement(By.id("numb")).sendKeys("13");
         driver.findElement(By.xpath("//button[text()='Submit']")).click();
         assertEquals("rgba(244, 67, 54, 1)", driver.findElement(By.id("numb")).getCssValue("background-color"));
