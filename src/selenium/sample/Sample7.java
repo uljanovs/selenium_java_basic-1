@@ -139,4 +139,10 @@ public class Sample7 {
         dateBox.sendKeys(dateToEnter);
         assertEquals(dateToEnter, dateBox.getAttribute("value"));
     }
+
+
 }
+
+
+
+

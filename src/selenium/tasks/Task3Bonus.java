@@ -24,7 +24,7 @@ public class Task3Bonus {
         String libWithDriversLocation = System.getProperty("user.dir") + "\\lib\\";
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get("https://kristinek.github.io/sitetasks/list_of_people");
+        driver.get("https://kristinek.github.io/site/tasks/list_of_people");
     }
 
     @After
@@ -36,6 +36,7 @@ public class Task3Bonus {
     public void addPerson() {
         /* TODO:
          * implement adding new person using page object
+         *
          *
          * in order: store the list of people and jobs currently on page
          * add a person via "Add person button"
