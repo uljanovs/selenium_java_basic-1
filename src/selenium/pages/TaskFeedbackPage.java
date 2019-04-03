@@ -27,7 +27,7 @@ public class TaskFeedbackPage {
     private WebElement messagePanel;
 
 
-    public void checkFieldsAreEpmty() {
+    public void checkFieldsAreEmpty() {
         for (WebElement dataField : dataFields) {
             assertTrue(dataField.getText().equals("") || dataField.getText().equals("null"));
         }

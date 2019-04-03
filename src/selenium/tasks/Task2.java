@@ -51,7 +51,7 @@ public class Task2 {
 //         click "Send" without entering any data
         mainPage.clickSendButton();
 //         check fields are empty or null
-        feedbackPage.checkFieldsAreEpmty();
+        feedbackPage.checkFieldsAreEmpty();
 //         check button colors
 //         (green with white letter and red with white letters)
         feedbackPage.checkButtonColors();
