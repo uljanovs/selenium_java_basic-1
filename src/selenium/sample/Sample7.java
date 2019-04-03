@@ -15,7 +15,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class Sample7 {
+public class    Sample7 {
     WebDriver driver;
     String base_url = "https://kristinek.github.io/site/examples/actions";
 
