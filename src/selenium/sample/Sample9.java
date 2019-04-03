@@ -51,6 +51,7 @@ public class Sample9 {
     @Test
     public void sleepExample() throws Exception {
         Thread.sleep(10000);
+        TimeUnit.SECONDS.sleep(1);
         magicTextCheck();
     }
 
