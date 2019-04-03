@@ -50,7 +50,8 @@ public class Sample9 {
 
     @Test
     public void sleepExample() throws Exception {
-        Thread.sleep(10000);
+        Thread.sleep(10 * 1000);
+        //TimeUnit.SECONDS.sleep(1);
         magicTextCheck();
     }
 
@@ -77,6 +78,8 @@ public class Sample9 {
 //        check that the element is not visible on page
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id='magic_text']/*[text()=\"What is this magic? It's dev magic~\"]")));
         magicTextCheck();
+
+        //located, enabled, visible (so if it is located it will be visible)
     }
 
     @Test
