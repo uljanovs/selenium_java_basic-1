@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class Sample5Task {
     WebDriver driver;
@@ -35,9 +36,25 @@ public class Sample5Task {
     public void goToAlertedPageViaButton() throws Exception {
 //         TODO:
 //        click on "To go to alerted page press Ok. Or stay here" button
+
+        driver.get("https://kristinek.github.io/site/examples/alerts_popups");
+        driver.findElement(By.className("w3-blue")).click();
 //        switch to alert
+        Alert alert = driver.switchTo().alert();
+        assertEquals("Want to see an alerted page?!", alert.getText());
+
+        alert.accept(); //tas ir "ok", tāpēc to vēlreiz nav jāraksta
+
 //        click ok
+
 //        switch to second alert
+        Alert alert2 = driver.switchTo().alert();
+        assertEquals("Booooooooo!", alert.getText());
+
+        alert2.accept();
+        assertEquals("https://kristinek.github.io/site/examples/alerted_page", driver.getCurrentUrl());
+
+
 //        verify alert text
 //        click ok on second alert
 //        verify that the correct page is opened
@@ -47,8 +64,18 @@ public class Sample5Task {
     public void doNotGoToAlertedPageViaButton() throws Exception {
 //         TODO:
 //        click on "To go to alerted page press Ok. Or stay here" button
+        driver.get("https://kristinek.github.io/site/examples/alerts_popups");
+        driver.findElement(By.className("w3-blue")).click();
 //        switch to alert
+        Alert alert = driver.switchTo().alert();
+        assertEquals("Want to see an alerted page?!", alert.getText());
+
+        alert.dismiss();
 //        click cancel
+       // šo nevajag driver.findElement(By.name("Cancel")).click();
+
 //        verify the text on page
+        assertEquals("So you desided to say? Good!", driver.findElement(By.id("textForAlerts")).getText());
     }
-}
+    }
+

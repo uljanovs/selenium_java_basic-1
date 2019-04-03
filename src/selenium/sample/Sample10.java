@@ -37,6 +37,16 @@ public class Sample10 {
         agePage.checkThatFormIsClean();
     }
 
+
+
+
+
+
+
+
+
+
+
     @Test
     public void checkErrorMessageOnEmptyAge() throws Exception {
         agePage.clickSubmit();
@@ -49,6 +59,11 @@ public class Sample10 {
         agePage.clickSubmit();
         agePage.checkErrorMessage("You haven't entered anything in name field");
     }
+    //šie piemēri, kad te ievadu datus
+
+    //pārējie - kad
+
+
 
     @Test
     public void checkSuccessfulMessageForKid() throws Exception {

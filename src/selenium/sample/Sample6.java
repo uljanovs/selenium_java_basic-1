@@ -39,6 +39,10 @@ public class Sample6 {
                 driver.findElement(By.xpath("//*[@id='standartText']")).getText() + "'");
         System.out.println("\t text of element with id 'nonStandartText' is '" +
                 driver.findElement(By.xpath("//*[@id='nonStandartText']")).getText() + "'");
+//div[@id='nonStandartParagraph
+        //*[@class='paragraph crazy w3-deep-purple']
+
+
 
 //        find element by id using CSS
         System.out.println("Find element by id using CSS:");
@@ -48,6 +52,8 @@ public class Sample6 {
                 driver.findElement(By.cssSelector("#standartText")).getText() + "'");
         System.out.println("\t text of element with id 'nonStandartText' is '" +
                 driver.findElement(By.cssSelector("#nonStandartText")).getText() + "'");
+
+
     }
 
     @Test
@@ -189,3 +195,5 @@ public class Sample6 {
                 driver.findElement(By.cssSelector("#nonStandartText .amazing")).getText() + "'");
     }
 }
+
+//*[@class='w3-row-padding w3-half w3-container']/h3

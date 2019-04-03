@@ -17,6 +17,9 @@ public class AgeSamplePage extends GenericSamplePage {
     @FindBy(how = How.CLASS_NAME, using = "error") // By.className("error)
     private WebElement errorText;
 
+    //te bija viss, kas jāatrod (rakstāmie lauki, poga, alerti laikam arī)
+
+
     public void enterName(String name) {
         nameInput.clear();
         nameInput.sendKeys(name);
@@ -38,6 +41,10 @@ public class AgeSamplePage extends GenericSamplePage {
     public void enterNameAgeAndClickSubmit(String name, int age) {
         enterNameAgeAndClickSubmit(name, String.valueOf(age));
     }
+// šie ir vajadzīgi, jo nosaka, ka var ievadīt tekstu!!!!!
+
+
+
 
     public void enterNameAgeAndClickSubmit() {
         enterName("admib");
@@ -49,7 +56,10 @@ public class AgeSamplePage extends GenericSamplePage {
         enterName(name);
         enterAge(age);
         submitButton.click();
-    }
+    }  //te name un age ir nosaukumi klasēm, id, css, xpath
+
+
+
 
     public void checkErrorMessage(String errorMessage) {
         checkPageHeaderText("Age page");

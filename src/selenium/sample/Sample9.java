@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 
 public class Sample9 {
-
+ //                   such interesting variables here
     WebDriver driver;
     private static WebDriverWait wait;
     static long startTime;

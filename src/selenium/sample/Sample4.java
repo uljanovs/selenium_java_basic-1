@@ -43,7 +43,7 @@ public class Sample4 {
     }
 
     @Test
-    public void clickButtonAndSeeOrHideText() throws Exception {
+    public void clickButtonAndSeeOrHideText() throws Exception {            //pazudināt kaut ko vai parādīt
         WebElement text = driver.findElement(By.id("show_me"));
         WebElement showButton = driver.findElement(By.id("show_text"));
         WebElement hideButton = driver.findElement(By.name("hide_text"));
