@@ -60,8 +60,14 @@ public class Task2 {
     @Test
     public void notEmptyFeedbackPage() throws Exception {
 //         TODO:
+        String name = "test";
+        String age = "30";
+        String comment = "comment check";
 //         fill the whole form, click "Send"
+        formPage.fillAllFields(name, age, comment);
+        formPage.clickSendButton();
 //         check fields are filled correctly
+        feedbackPage.checkFieldsFilledCorrectly(name, age, comment);
 //         check button colors
 //         (green with white letter and red with white letters)
     }
