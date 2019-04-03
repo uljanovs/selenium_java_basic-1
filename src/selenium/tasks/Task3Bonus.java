@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import selenium.pages.EmployeeStatus;
+import selenium.enums.EmployeeStatus;
 import selenium.pages.FormPage;
-import selenium.pages.Gender;
+import selenium.enums.Task3Gender;
 import selenium.pages.ListPage;
 
 import java.text.ParseException;
@@ -68,7 +68,7 @@ public class Task3Bonus {
             fail("incorrect date format");
         }
         formPage.selectLanguages(true, false, true);
-        formPage.selectGender(Gender.MALE);
+        formPage.selectGender(Task3Gender.MALE);
         formPage.selectEmployeeStatus(EmployeeStatus.CONTRACTOR);
         formPage.clickAddBtn();
 
@@ -97,7 +97,7 @@ public class Task3Bonus {
         } catch (ParseException e) {
             fail("incorrect date format");
         }
-        formPage.selectGender(Gender.MALE);
+        formPage.selectGender(Task3Gender.MALE);
         formPage.selectEmployeeStatus(EmployeeStatus.CONTRACTOR);
         formPage.clickEditBtn();
 
@@ -107,7 +107,7 @@ public class Task3Bonus {
         listPage.checkJob(listBeforeChange.get(1).get("job"), 1);
         listPage.checkDateOfBirth("11/01/1990", 1);
         listPage.checkLanguages(false, false, false, 1);
-        listPage.checkGender(Gender.MALE, 1);
+        listPage.checkGender(Task3Gender.MALE, 1);
         listPage.checkEmployeeStatus(EmployeeStatus.CONTRACTOR, 1);
     }
 
@@ -131,7 +131,7 @@ public class Task3Bonus {
         } catch (ParseException e) {
             fail("incorrect date format");
         }
-        formPage.selectGender(Gender.MALE);
+        formPage.selectGender(Task3Gender.MALE);
         formPage.selectEmployeeStatus(EmployeeStatus.CONTRACTOR);
         formPage.clickCancelBtn();
 

@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
+import selenium.enums.EmployeeStatus;
+import selenium.enums.Task3Gender;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -72,8 +74,8 @@ public class FormPage {
         }
     }
 
-    public void selectGender(Gender gender) {
-        if (gender == Gender.MALE){
+    public void selectGender(Task3Gender gender) {
+        if (gender == Task3Gender.MALE){
             genderRadio.get(0).click();
         } else {
             genderRadio.get(1).click();

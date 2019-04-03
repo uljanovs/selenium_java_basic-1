@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import selenium.enums.EmployeeStatus;
+import selenium.enums.Task3Gender;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -110,10 +112,6 @@ public class ListPage {
         assertEquals(date, listOfPeople.get(index).findElement(By.className("dob")).getText());
     }
 
-    public void checkLanguages(String languages, int index) {
-        assertEquals(languages, listOfPeople.get(index).findElement(By.className("language")).getText());
-    }
-
     public void checkLanguages(boolean english, boolean french, boolean spanish, int index) {
         String languages = "";
         if (english){
@@ -128,12 +126,20 @@ public class ListPage {
         if (languages.equals("")){
             languages = "undefined";
         }
+        checkLanguages(languages, index);
+    }
+
+    public void checkLanguages(String languages, int index) {
         assertEquals(languages, listOfPeople.get(index).findElement(By.className("language")).getText());
     }
 
-    public void checkGender(Gender gender, int index){
-        assertEquals((gender == Gender.MALE ? "male" : "female"),
-                listOfPeople.get(index).findElement(By.className("gender")).getText());
+    public void checkGender(Task3Gender gender, int index){
+        String genderString = (gender == Task3Gender.MALE) ? "male" : "female";
+        checkGender(genderString, index);
+    }
+
+    public void checkGender(String gender, int index){
+        assertEquals(gender, listOfPeople.get(index).findElement(By.className("gender")).getText());
     }
 
     public void checkEmployeeStatus(EmployeeStatus status, int index){
@@ -152,7 +158,11 @@ public class ListPage {
                 break;
             }
         }
-        assertEquals(statusString, listOfPeople.get(index).findElement(By.className("status")).getText());
+        checkEmployeeStatus(statusString, index);
+    }
+
+    public void checkEmployeeStatus(String status, int index){
+        assertEquals(status, listOfPeople.get(index).findElement(By.className("status")).getText());
     }
 
     public void checkTableNotDisplayed(){
