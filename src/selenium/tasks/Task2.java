@@ -69,7 +69,7 @@ public class Task2 {
 //         check fields are filled correctly
         feedbackPage.checkFieldsFilledCorrectly(name, age, comment);
 //         check button colors
-//         (green with white letter and red with white letters)
+//         (green with white letter and red with white letters) 
     }
 
     @Test
