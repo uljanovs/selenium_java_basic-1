@@ -46,7 +46,12 @@ public class ListPage {
     }
 
     public void checkNoChangeAfterAdd(ArrayList<LinkedHashMap<String, String>> previousList){
-        checkNoChange(previousList, 0, listOfPeople.size() - 1);
+        ArrayList<LinkedHashMap<String, String>> list = new ArrayList<>();
+        for (LinkedHashMap<String, String> map: previousList) {
+            list.add(new LinkedHashMap<>(map));
+        }
+        list.add(new LinkedHashMap<>());
+        checkNoChange(list, 0, listOfPeople.size() - 1);
     }
 
     public void checkNoChangeAfterEdit(ArrayList<LinkedHashMap<String, String>> previousList, int index) {
@@ -68,6 +73,7 @@ public class ListPage {
     }
 
     public void checkNoChange(ArrayList<LinkedHashMap<String, String>> previousList, int from, int to){
+        assertEquals(previousList.size(), listOfPeople.size());
         for (int i = from; i < to; i++) {
             for (String classString: listOfClasses) {
                 assertEquals(previousList.get(i).get(classString),
