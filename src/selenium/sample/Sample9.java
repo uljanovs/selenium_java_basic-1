@@ -33,7 +33,7 @@ public class Sample9 {
         System.out.println(driver.findElement(By.id("magic_text")).getText());
         assertEquals("This text magicly changes color", driver.findElement(By.id("magic_text")).getText());
 
-        startTime = System.currentTimeMillis();
+        startTime = System.currentTimeMillis(); // to see how long time it takes
     }
 
     public void magicTextCheck() {
@@ -50,7 +50,8 @@ public class Sample9 {
 
     @Test
     public void sleepExample() throws Exception {
-        Thread.sleep(10000);
+        Thread.sleep(10 * 10000);
+        TimeUnit.SECONDS.sleep(1); //another way to write this
         magicTextCheck();
     }
 
@@ -65,16 +66,17 @@ public class Sample9 {
 
     @Test
     public void explicitWaitExample1() throws Exception {
-//        check that the element is present on page
+//        check that the element is present on page - in code
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='magic_text']/*[text()=\"What is this magic? It's dev magic~\"]")));
 //        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("asd")));
 //        driver.findElement(By.xpath("//*[@id='magic_text']/*[text()=\"What is this magic? It's dev magic~\"]"));
         magicTextCheck();
     }
+// another level is enabled
 
     @Test
     public void explicitWaitExample2() throws Exception {
-//        check that the element is not visible on page
+//        check that the element is not visible on page - means it is present, enabled and visible
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id='magic_text']/*[text()=\"What is this magic? It's dev magic~\"]")));
         magicTextCheck();
     }

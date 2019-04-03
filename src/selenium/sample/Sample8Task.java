@@ -35,8 +35,13 @@ public class Sample8Task {
     @Test
     public void styleChecks() throws Exception {
 //         TODO:
-//        check the background of top 2 sections
+//        check the background of top 2 sections w3-pale-yellow
+        System.out.println(driver.findElement(By.id("header")).getCssValue("background-color"));
+        System.out.println(driver.findElement(By.className("w3-light-grey")).getCssValue("background-color"));
+
 //        rgba(255, 221, 221, 1);
+
 //        check h1 element font-size 64px
+        System.out.println(driver.findElement(By.xpath("//h1")).getCssValue("font-size"));
     }
 }
