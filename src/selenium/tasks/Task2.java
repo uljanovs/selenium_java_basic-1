@@ -108,9 +108,16 @@ public class Task2 {
     @Test
     public void noOnFeedbackPage() throws Exception {
 //         TODO:
+        String name = "test";
+        String age = "30";
+        String comment = "comment check";
 //         fill the whole form
+        formPage.fillAllFields(name, age, comment);
 //         click "Send"
+        formPage.clickSendButton();
 //         click "No"
+        feedbackPage.clickButtonNo();
 //         check fields are filled correctly
+        formPage.checkFormFieldsFilledCorrectly(name, age, comment);
     }
 }

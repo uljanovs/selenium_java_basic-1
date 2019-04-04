@@ -70,4 +70,17 @@ public class FeedbackFormPage extends  GenericSamplePage{
         nameField.sendKeys(name);
     }
 
+    public void checkFormFieldsFilledCorrectly(String name, String age, String comment) {
+
+        assertEquals(name, nameField.getAttribute("value"));
+        assertEquals(age, ageField.getAttribute("value"));
+        assertTrue(checkBoxes.get(0).isSelected());
+        assertTrue(radioButtons.get(0).isSelected());
+
+        Select dropdown = new Select(howDoYouLikeUs);
+        assertEquals("Good", dropdown.getFirstSelectedOption().getText());
+
+        assertEquals(comment, commentField.getAttribute("value"));
+    }
+
 }

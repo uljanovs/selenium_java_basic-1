@@ -58,4 +58,8 @@ public class FeedbackPage extends  GenericSamplePage {
     public void clickButtonYes(){
         buttonYes.click();
     }
+
+    public void clickButtonNo(){
+        buttonNo.click();
+    }
 }
