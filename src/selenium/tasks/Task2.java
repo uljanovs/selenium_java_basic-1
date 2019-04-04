@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import selenium.pages.FeedbackFormPage;
 import selenium.pages.FeedbackPage;
+import selenium.pages.ThankYouPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,6 +16,7 @@ public class Task2 {
     WebDriver driver;
     static FeedbackFormPage formPage;
     static FeedbackPage feedbackPage;
+    static ThankYouPage thankYouPage;
 
     @Before
     public void openPage() {
@@ -25,6 +27,7 @@ public class Task2 {
         driver.get("https://kristinek.github.io/site/tasks/provide_feedback");
         formPage = PageFactory.initElements(driver, FeedbackFormPage.class);
         feedbackPage = PageFactory.initElements(driver, FeedbackPage.class);
+        thankYouPage = PageFactory.initElements(driver, ThankYouPage.class);
     }
 
     @After
@@ -69,17 +72,24 @@ public class Task2 {
 //         check fields are filled correctly
         feedbackPage.checkFieldsFilledCorrectly(name, age, comment);
 //         check button colors
-//         (green with white letter and red with white letters) 
+//         (green with white letter and red with white letters)
+        feedbackPage.checkYesAndNoButtonColor();
     }
 
     @Test
     public void yesOnWithNameFeedbackPage() throws Exception {
 //         TODO:
+        String name = "test";
 //         enter only name
+        formPage.fillNameField(name);
 //         click "Send"
+        formPage.clickSendButton();
 //         click "Yes"
+        feedbackPage.clickButtonYes();
 //         check message text: "Thank you, NAME, for your feedback!"
+        thankYouPage.checkThankYouButtonText();
 //         color of text is white with green on the background
+        thankYouPage.checkThankYouButtonColors();
     }
 
     @Test

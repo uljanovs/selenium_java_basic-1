@@ -66,4 +66,8 @@ public class FeedbackFormPage extends  GenericSamplePage{
         dropdown.selectByIndex(1);
     }
 
+    public void fillNameField(String name) {
+        nameField.sendKeys(name);
+    }
+
 }

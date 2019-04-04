@@ -25,7 +25,7 @@ public class FeedbackPage extends  GenericSamplePage {
     private WebElement filledAgeField;
     @FindBy(how = How.ID, using = "language")
     private WebElement filledLanguageField;
-    @FindBy(how = How.ID, using = "genre")
+    @FindBy(how = How.ID, using = "gender")
     private WebElement filledGenreField;
     @FindBy(how = How.ID, using = "option")
     private WebElement filledOptionField;
@@ -53,5 +53,9 @@ public class FeedbackPage extends  GenericSamplePage {
         assertEquals("male", filledGenreField.getText());
         assertEquals("Good", filledOptionField.getText());
         assertEquals(comment, filledCommentField.getText());
+    }
+
+    public void clickButtonYes(){
+        buttonYes.click();
     }
 }
