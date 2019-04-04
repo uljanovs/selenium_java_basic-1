@@ -79,13 +79,12 @@ public class extra1Task {
 //        click on "Show" button in 'Button' section
         showButton.click();
 //        check that text "I am here!" is seen
-        Thread.sleep(5000);
         assertTrue("I am here!".equals(text.getText()));
 //        refresh page
         driver.navigate().refresh();
-        Thread.sleep(5000);
+        text = driver.findElement(By.id("show_me"));
         //        check that text "I am here!" is not seen
-        assertEquals("", text.getText());
+        //assertEquals("", text.getText());
         assertFalse(text.isDisplayed());
     }
 }

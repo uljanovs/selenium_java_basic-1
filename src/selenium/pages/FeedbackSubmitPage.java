@@ -37,7 +37,6 @@ public class FeedbackSubmitPage {
     @FindBy(how = How.CLASS_NAME, using = "w3-red")
     private WebElement buttonNo;
 
-
     public void clickButtonYes() {
         buttonYes.click();
     }
@@ -74,7 +73,4 @@ public class FeedbackSubmitPage {
         assertEquals("Good", yourOptionsOfUs.getText());
         assertEquals(comment, yourComment.getText());
     }
-
-
-
 }

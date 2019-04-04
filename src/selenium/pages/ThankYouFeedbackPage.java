@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ThankYouFeedbackPage {
 
-    @FindBy(how = How.ID, using = "message")
+    @FindBy(how = How.CLASS_NAME, using = "w3-green")
     private WebElement message;
 
     public void checkMessage(String messageText){
