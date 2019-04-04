@@ -3,12 +3,10 @@ package selenium.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class FeedbackPage extends  GenericSamplePage {
@@ -19,18 +17,6 @@ public class FeedbackPage extends  GenericSamplePage {
     private WebElement buttonYes;
     @FindBy(how = How.XPATH, using = "//*[@id=\"fb_thx\"]/div/div[2]/button[2]")
     private WebElement buttonNo;
-    @FindBy(how = How.ID, using = "name")
-    private WebElement filledNameField;
-    @FindBy(how = How.ID, using = "age")
-    private WebElement filledAgeField;
-    @FindBy(how = How.ID, using = "language")
-    private WebElement filledLanguageField;
-    @FindBy(how = How.ID, using = "gender")
-    private WebElement filledGenreField;
-    @FindBy(how = How.ID, using = "option")
-    private WebElement filledOptionField;
-    @FindBy(how = How.ID, using = "comment")
-    private WebElement filledCommentField;
 
     public void checkFieldsEmpty() {
         for (WebElement fields : filledOrNotFields) {
@@ -47,12 +33,12 @@ public class FeedbackPage extends  GenericSamplePage {
 
     public void checkFieldsFilledCorrectly(String name, String age, String comment) {
 
-        assertEquals(name, filledNameField.getText());
-        assertEquals(age, filledAgeField.getText());
-        assertEquals("English", filledLanguageField.getText());
-        assertEquals("male", filledGenreField.getText());
-        assertEquals("Good", filledOptionField.getText());
-        assertEquals(comment, filledCommentField.getText());
+        assertEquals(name, filledOrNotFields.get(0).getText());
+        assertEquals(age, filledOrNotFields.get(1).getText());
+        assertEquals("English", filledOrNotFields.get(2).getText());
+        assertEquals("male", filledOrNotFields.get(3).getText());
+        assertEquals("Good", filledOrNotFields.get(4).getText());
+        assertEquals(comment, filledOrNotFields.get(5).getText());
     }
 
     public void clickButtonYes(){
