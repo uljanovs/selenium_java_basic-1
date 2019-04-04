@@ -9,12 +9,16 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import selenium.pages.AgeSamplePage;
 import selenium.pages.Feedback_Task2;
+import selenium.pages.Feedback_Task2_Page2;
+import selenium.pages.Feedback_Task2_Page3;
 
 import java.util.concurrent.TimeUnit;
 
 public class Task2 {
     WebDriver driver;
     static Feedback_Task2 feedbackTask2;
+    static Feedback_Task2_Page2 feedbackTask2Page2;
+    static Feedback_Task2_Page3 feedbackTask2Page3;
 
     @Before
     public void openPage() {
@@ -23,6 +27,8 @@ public class Task2 {
         driver = new ChromeDriver();
         driver.get("https://kristinek.github.io/site/tasks/provide_feedback");
         feedbackTask2 = PageFactory.initElements(driver, Feedback_Task2.class);
+        feedbackTask2Page2 = PageFactory.initElements(driver, Feedback_Task2_Page2.class);
+        feedbackTask2Page3 = PageFactory.initElements(driver, Feedback_Task2_Page3.class);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
@@ -51,10 +57,10 @@ public class Task2 {
         //         click "Send" without entering any data
         feedbackTask2.clickSendWithoutData();
 //         check fields are empty or null
-        feedbackTask2.checkFieldsAreEmptyAfterSend();
+        feedbackTask2Page2.checkFieldsAreEmptyAfterSend();
 //         check button colors
         // (green with white letter and red with white letters)
-        feedbackTask2.checkTheGreenAndRedButtonColor();
+        feedbackTask2Page2.checkTheGreenAndRedButtonColor();
     }
 
     @Test
@@ -63,10 +69,10 @@ public class Task2 {
 //         fill the whole form, click "Send"
        feedbackTask2.fillWholeFormAndSend();
 //         check fields are filled correctly
-       feedbackTask2.checkThatFormIsCorrect();
+       feedbackTask2Page2.checkThatFormIsCorrect();
 //         check button colors
 // (green with white letter and red with white letters)
-       feedbackTask2.checkTheGreenAndRedButtonColor();
+       feedbackTask2Page2.checkTheGreenAndRedButtonColor();
     }
 
     @Test
@@ -77,8 +83,9 @@ public class Task2 {
 //         click "Yes"
         feedbackTask2.writeNameAndSendIt();
 //         check message text: "Thank you, NAME, for your feedback!"
+        feedbackTask2Page3.checkGreetingMessageTextWithName();
 //         color of text is white with green on the background
-        feedbackTask2.checkGreetingMessageColor();
+        feedbackTask2Page3.checkGreetingMessageColor();
     }
 
     @Test
@@ -88,8 +95,9 @@ public class Task2 {
 //         click "Yes"
         feedbackTask2.sendBlankForm();
 //         check message text: "Thank you for your feedback!"
+        feedbackTask2Page3.checkGreetingMessageTextWithoutName();
 //         color of text is white with green on the background
-        feedbackTask2.checkGreetingMessageColor();
+        feedbackTask2Page3.checkGreetingMessageColor();
     }
 
     @Test
