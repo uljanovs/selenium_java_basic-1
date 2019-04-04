@@ -113,7 +113,7 @@ public class InitialFeedbackPage extends GenericSamplePage {
     }
 
     public void fillWholeForm(){
-        enterName("Alina");
+        nameInput.sendKeys("Alina");
         enterAge(21);
         selectEnglish.click();
         selectGenderFemale.click();
@@ -124,6 +124,17 @@ public class InitialFeedbackPage extends GenericSamplePage {
     public void checkFieldsAreFilledCorrect(){
         fillWholeForm();
 
+// WebElement strvalue = driver.findElement(By.xpath("  "));
+//        String expected = "Text to compare";
+//        String actual = strvalue.getText();
+//        System.out.println(actual);
+//
+//    if(expected.equals(actual)){
+//        System.out.println("Pass");
+//    }
+//        else {
+//            System.out.println("Fail");
+//        }
 
 
     }

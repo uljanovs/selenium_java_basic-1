@@ -5,9 +5,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
+import selenium.pages.EnterNumberPage;
+import selenium.pages.InitialFeedbackPage;
 
 public class Task1 {
     WebDriver driver;
+    static EnterNumberPage enterNumberPage;
 
     @Before
     public void openPage() {
@@ -16,6 +20,7 @@ public class Task1 {
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://kristinek.github.io/site/tasks/enter_a_number");
+        enterNumberPage = PageFactory.initElements(driver, EnterNumberPage.class);
     }
 
     @After
@@ -26,6 +31,8 @@ public class Task1 {
     @Test
     public void errorOnText() {
 //        TODO
+
+//driver.findElement(By.id("name")).sendKeys(student.getName());
 //        enter a text instead of a number, check that correct error is seen
     }
 
