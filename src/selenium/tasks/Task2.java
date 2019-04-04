@@ -96,9 +96,13 @@ public class Task2 {
     public void yesOnWithoutNameFeedbackPage() throws Exception {
 //         TODO:
 //         click "Send" (without entering anything
+        formPage.clickSendButton();
 //         click "Yes"
+        feedbackPage.clickButtonYes();
 //         check message text: "Thank you for your feedback!"
+        thankYouPage.checkThankYouButtonTextEmpty();
 //         color of text is white with green on the background
+        thankYouPage.checkThankYouButtonColors();
     }
 
     @Test

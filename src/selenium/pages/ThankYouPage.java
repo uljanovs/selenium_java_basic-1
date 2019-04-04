@@ -15,6 +15,10 @@ public class ThankYouPage extends  GenericSamplePage {
         assertEquals("Thank you, test, for your feedback!", thankYouField.getText());
     }
 
+    public void checkThankYouButtonTextEmpty(){
+        assertEquals("Thank you for your feedback!", thankYouField.getText());
+    }
+
    public void checkThankYouButtonColors(){
         assertEquals("rgba(76, 175, 80, 1)", thankYouField.getCssValue("background-color"));
         assertEquals("rgba(255, 255, 255, 1)", thankYouField.getCssValue("color"));
